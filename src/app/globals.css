@@ -1,26 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ground: #f2f4ef;
+  --paper: #ffffff;
+  --ink: #14211a;
+  --ink-soft: #4a5a51;
+  --line: #d6dcd3;
+  --green: #1f6f4a;
+  --green-deep: #154e34;
+  --green-wash: #e3efe7;
+  --vest: #f26a1b;
+  --vest-wash: #fdebdf;
+  --water: #cfe3e8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ground: var(--ground);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-green: var(--green);
+  --color-green-deep: var(--green-deep);
+  --color-green-wash: var(--green-wash);
+  --color-vest: var(--vest);
+  --color-vest-wash: var(--vest-wash);
+  --color-water: var(--water);
+  --font-sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius-sm: 6px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+/* Form controls */
+@utility field {
+  @apply w-full rounded-sm border border-line bg-paper px-3 py-2.5 text-[16px] leading-6 text-ink placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 focus:ring-green focus:border-green;
+}
+@utility label {
+  @apply block text-sm font-medium text-ink mb-1;
+}
+@utility hint {
+  @apply text-xs text-ink-soft mt-1;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2.5 text-[15px] font-semibold leading-5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green disabled:opacity-50 disabled:cursor-not-allowed;
+}
+.btn-primary { @apply btn bg-green text-white hover:bg-green-deep; }
+.btn-secondary { @apply btn bg-paper text-ink border border-line hover:border-ink/40; }
+.btn-vest { @apply btn bg-vest text-white hover:bg-[#d65a12]; }
+.btn-danger { @apply btn bg-paper text-rose-800 border border-rose-300 hover:bg-rose-50; }
+.btn-ghost { @apply btn text-ink-soft hover:text-ink hover:bg-ink/5; }
+
+@utility card { @apply bg-paper border border-line rounded-sm; }
+
+/* Leaflet */
+.leaflet-container { font-family: inherit; }
+.leaflet-popup-content-wrapper { border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
 }
