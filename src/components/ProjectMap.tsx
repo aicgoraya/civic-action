@@ -70,8 +70,8 @@ export function ProjectMap({
         className="rounded-sm border border-line z-0"
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {showNeed &&
           neighborhoods.map((n) => (
@@ -156,7 +156,7 @@ export function LocationPicker({
         style={{ height: 260, width: "100%" }}
         className="rounded-sm border border-line z-0"
       >
-        <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" attribution="&copy; OpenStreetMap &copy; CARTO" />
+        <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="&copy; OpenStreetMap contributors" />
         <Clicker onPick={setPos} />
         {pos && <CircleMarker center={pos} radius={9} pathOptions={{ color: "#14211a", fillColor: "#f26a1b", fillOpacity: 1 }} />}
       </MapContainer>
