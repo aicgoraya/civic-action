@@ -73,6 +73,13 @@ export default async function Home() {
         </ul>
       </section>
 
+      <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+        <Link href="/updates" className="text-green font-medium">Get updates &amp; text reminders</Link>
+        <Link href="/partners" className="text-green font-medium">Sponsor a tree or a cleanup</Link>
+        <Link href="/live" className="text-green font-medium">Live field view</Link>
+        <Link href="/#hou" className="text-green font-medium">Ask Hou</Link>
+      </div>
+
       {/* Happening soon + map */}
       <section className="mt-14 grid gap-8 lg:grid-cols-[1fr_1.1fr]">
         <div>

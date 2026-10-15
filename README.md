@@ -20,6 +20,14 @@ stakes so check-ins and tree watering are logged with a phone tap, no app instal
 | Impact metrics | `/impact` — projects, volunteers, hours, waste lb, trees planted & *surviving* (verified by steward taps), neighborhoods served |
 | Public vs admin separation | `/admin/*` behind staff login; unpublished projects never appear in public lists |
 | Physical prototype | NFC tags → `/t/<code>` (volunteer check-in, tree watering log, issue report) |
+| Projector screen for the demo | `/live` — dark, big numbers, pulsing overdue trees, field-activity feed, refreshes every 8 s |
+| Hou assistant | floating button on every public page; scripted (`src/lib/hou.ts`), answers from live data, hands off to staff |
+| Newsletter / text reminders, sponsors | `/updates`, `/partners` |
+
+## Live
+
+Production: https://civic-action-aicgoraya.vercel.app (Vercel, auto-deploys from `main`; database on Supabase).
+Staff login password is in Vercel env `ADMIN_PASSWORD`.
 
 ## Stack
 

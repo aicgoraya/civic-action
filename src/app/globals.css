@@ -68,6 +68,9 @@ h1, h2, h3 {
 
 @utility card { @apply bg-paper border border-line rounded-sm; }
 
+@keyframes pingslow{0%{box-shadow:0 0 0 0 rgba(242,106,27,.7)}100%{box-shadow:0 0 0 10px rgba(242,106,27,0)}}
+.animate-ping-slow{animation:pingslow 1.6s infinite}
+
 /* Leaflet */
 .leaflet-container { font-family: inherit; }
 .leaflet-popup-content-wrapper { border-radius: 6px; }

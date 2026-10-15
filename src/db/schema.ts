@@ -272,6 +272,16 @@ export const notifications = pgTable(
   (t) => [index("notifications_created_idx").on(t.createdAt)],
 );
 
+// Newsletter / text-reminder subscribers
+export const subscribers = pgTable("subscribers", {
+  id: id(),
+  name: text("name").notNull(),
+  email: text("email").notNull().unique(),
+  phone: text("phone"),
+  neighborhoodId: text("neighborhood_id").references(() => neighborhoods.id),
+  createdAt: createdAt(),
+});
+
 // ---------- Relations ----------
 
 export const neighborhoodRelations = relations(neighborhoods, ({ many }) => ({
@@ -341,5 +351,6 @@ export type Signup = typeof signups.$inferSelect;
 export type AdoptionRequest = typeof adoptionRequests.$inferSelect;
 export type Activity = typeof activity.$inferSelect;
 export type Notification = typeof notifications.$inferSelect;
+export type Subscriber = typeof subscribers.$inferSelect;
 export type ProjectStatus = Project["status"];
 export type ProjectType = Project["type"];

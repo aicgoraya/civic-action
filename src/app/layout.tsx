@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
+import { Hou } from "@/components/hou/Hou";
 
 export const metadata: Metadata = {
   title: { default: "Houston Civic Action", template: "%s · Houston Civic Action" },
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col">
         <Nav />
         <main className="flex-1">{children}</main>
+        <Hou />
         <footer className="border-t border-line mt-16">
           <div className="mx-auto max-w-5xl px-4 py-6 text-xs text-ink-soft flex flex-wrap gap-x-6 gap-y-2">
             <span>Prototype built for the UH Coogs for Energy Hackathon, Fall 2026 (Team UHnder Pressure).</span>
